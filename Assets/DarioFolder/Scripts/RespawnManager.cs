@@ -45,7 +45,7 @@ public class RespawnManager : MonoBehaviour
         if (GameObject.FindWithTag("player 1") == null && player1Prefab != null)
         {
             Instantiate(player1Prefab, player1RespawnPosition, Quaternion.identity);
-            Debug.Log("Respawned player 1 at: " + player1RespawnPosition);
+            Debug.Log("Respawned Player1 at: " + player1RespawnPosition);
             GameObject cam = GameObject.FindWithTag("Camera1");
             if (cam != null)
             {
@@ -57,7 +57,7 @@ public class RespawnManager : MonoBehaviour
         if (GameObject.FindWithTag("player 2") == null && player2Prefab != null)
         {
             Instantiate(player2Prefab, player2RespawnPosition, Quaternion.identity);
-            Debug.Log("Respawned player 2 at: " + player2RespawnPosition);
+            Debug.Log("Respawned Player2 at: " + player2RespawnPosition);
             GameObject cam = GameObject.FindWithTag("Camera2");
             if (cam != null)
             {

@@ -7,16 +7,24 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (isActive && respawnManager != null)
+        if (!isActive)
+            return;
+
+        if (respawnManager == null)
         {
-            if (other.CompareTag("player 1"))
-            {
-                respawnManager.UpdatePlayer1Respawn(transform.position);
-            }
-            else if (other.CompareTag("player 2"))
-            {
-                respawnManager.UpdatePlayer2Respawn(transform.position);
-            }
+            Debug.LogWarning("Checkpoint has no RespawnManager assigned.");
+            return;
+        }
+
+        if (other.CompareTag("Player1"))
+        {
+            respawnManager.UpdatePlayer1Respawn(transform.position);
+            Debug.Log("Checkpoint updated Player1 respawn to: " + transform.position);
+        }
+        else if (other.CompareTag("Player2"))
+        {
+            respawnManager.UpdatePlayer2Respawn(transform.position);
+            Debug.Log("Checkpoint updated Player2 respawn to: " + transform.position);
         }
     }
 }
